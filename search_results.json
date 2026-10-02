@@ -1,0 +1,76 @@
+{
+  "Administration de Bases de Données": {
+    "Performance": [
+      {
+        "id": "_evjr9sg-w0",
+        "title": "PostgreSQL 18 Query Tracking pg_stat_statements"
+      },
+      {
+        "id": "MVAKQCrb8Xw",
+        "title": "Deep Dive into pg_stat_statements"
+      },
+      {
+        "id": "laxZdbE1Nuw",
+        "title": "Postgres Performance Observability Sources and Analysis Techniques"
+      },
+      {
+        "id": "t60MGju8RR8",
+        "title": "Monitoring Postgres from the ground up the metrics that matter"
+      },
+      {
+        "id": "rCzSNdUOEdg",
+        "title": "Additional IO Observability in Postgres with pg_stat_io"
+      },
+      {
+        "id": "LUOABmmFfRY",
+        "title": "How to Create Partitions in PostgreSQL Partitions Explained"
+      },
+      {
+        "id": "edQZauVU-ws",
+        "title": "PostgreSQL Partitioning in Production A Practical Guide"
+      },
+      {
+        "id": "mWJhU8ygRtk",
+        "title": "PostgreSQL 18 Table Partitioning Guide"
+      },
+      {
+        "id": "niOq5zorv-g",
+        "title": "Mastering PostgreSQL Partitioning Supercharge Performance and Simplify Maintenance"
+      },
+      {
+        "id": "R0yrUdLy6S8",
+        "title": "My Postgres partitioning cookbook"
+      }
+    ],
+    "Exploitation": [
+      {
+        "id": "mtPM3iZFE04",
+        "title": "For Your Eyes Only Roles Privileges and Security in PostgreSQL"
+      },
+      {
+        "id": "Q56kljmIN14",
+        "title": "PostgreSQL Internal Architecture Explained"
+      },
+      {
+        "id": "iwzc6sDqfX8",
+        "title": "Migrating from MSSQL to PostgreSQL"
+      },
+      {
+        "id": "INjlZ6ITOYw",
+        "title": "Effortless Database Migration MySQL to PostgreSQL Tutorial"
+      },
+      {
+        "id": "oQgCNJv9Prw",
+        "title": "Migrate SQL Server to Postgres Seamlessly with Airbyte"
+      },
+      {
+        "id": "qAz1rIdUt7M",
+        "title": "Data-intensive PostgreSQL Three ways to scale"
+      },
+      {
+        "id": "ng6dKtrHAtE",
+        "title": "Best Practices for Tuning Slow Postgres Queries"
+      }
+    ]
+  }
+}

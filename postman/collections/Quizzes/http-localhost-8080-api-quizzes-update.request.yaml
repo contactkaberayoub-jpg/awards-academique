@@ -1,0 +1,28 @@
+$kind: http-request
+name: http://localhost:8080/api/quizzes/{{quiz_id}} (update)
+description: Updates the title and passing score of the quiz referenced by the quiz_id variable.
+url: http://localhost:8080/api/quizzes/{{quiz_id}}
+method: PUT
+body:
+  type: json
+  content: '{"title": "Introductory Physics Quiz - Updated", "passingScore": 80}'
+auth:
+  type: bearer
+  credentials:
+    token: "{{instructor_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Update quiz returns 200", function() {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Updated fields are persisted", function() {
+          const body = pm.response.json();
+          pm.expect(body.id).to.eql(pm.collectionVariables.get("quiz_id"));
+          pm.expect(body.title).to.eql("Introductory Physics Quiz - Updated");
+          pm.expect(body.passingScore).to.eql(80);
+          pm.expect(body.status).to.eql("draft");
+      });
+order: 700

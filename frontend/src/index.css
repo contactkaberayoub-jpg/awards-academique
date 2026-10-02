@@ -1,0 +1,332 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+@import "./styles/theme.css";
+@import "ckeditor5/ckeditor5.css";
+@import "./styles/ckeditor.css";
+
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Keyboard-visible focus everywhere, at a consistent offset */
+*:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-focus-ring-subtle);
+  color: var(--color-text-primary);
+}
+
+/* Slim, theme-aware scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 9999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+
+
+
+/* Fraunces numerals render beautifully with a light touch of ligature
+   care — keep the ink crisp and the figures generous. */
+.font-display {
+  font-variation-settings: 'SOFT' 60, 'WONK' 0;
+}
+
+/* ==========================================================================
+   CERTIFICATE — A4 LANDSCAPE ACADEMIC DOCUMENT
+   Fixed physical size (297mm x 210mm). On screen it is centered and
+   responsively scaled by the surrounding page; printing forces natural size.
+   ========================================================================== */
+
+.certificate-sheet {
+  position: relative;
+  width: 297mm;
+  height: 210mm;
+  overflow: hidden;
+  background: var(--color-certificate-paper);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  box-shadow: var(--shadow-xl);
+}
+
+.certificate-frame-outer {
+  position: absolute;
+  inset: 9mm;
+  border: 1.2mm solid var(--color-certificate-gold);
+  pointer-events: none;
+}
+
+.certificate-frame-inner {
+  position: absolute;
+  inset: 12.5mm;
+  border: 0.4mm solid var(--color-certificate-rule);
+  pointer-events: none;
+}
+
+.certificate-corner {
+  position: absolute;
+  width: 8mm;
+  height: 8mm;
+  border: 0.5mm solid var(--color-certificate-gold);
+  background: var(--color-certificate-paper);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.certificate-corner-tl { top: 10.5mm; left: 10.5mm; }
+.certificate-corner-tr { top: 10.5mm; right: 10.5mm; }
+.certificate-corner-bl { bottom: 10.5mm; left: 10.5mm; }
+.certificate-corner-br { bottom: 10.5mm; right: 10.5mm; }
+
+.certificate-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 28mm 34mm 22mm;
+  text-align: center;
+}
+
+.certificate-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2mm;
+}
+
+.certificate-eyebrow {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.certificate-wordmark {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-indent: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.certificate-divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 72mm;
+  margin: 3mm 0 0;
+}
+
+.certificate-divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-certificate-rule);
+}
+
+.certificate-divider-diamond {
+  width: 6px;
+  height: 6px;
+  background: var(--color-certificate-gold);
+  transform: rotate(45deg);
+}
+
+.certificate-title {
+  margin: 2mm 0 0;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  text-transform: uppercase;
+  color: var(--color-certificate-gold);
+}
+
+.certificate-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 3mm;
+  padding: 8mm 0 6mm;
+}
+
+.certificate-body-label {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.certificate-student-name {
+  margin: 0;
+  max-width: 100%;
+  font-family: var(--font-display);
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 1.12;
+  color: var(--color-text-primary);
+  overflow-wrap: anywhere;
+}
+
+.certificate-course-title {
+  margin: 0;
+  max-width: 100%;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-certificate-gold);
+  overflow-wrap: anywhere;
+}
+
+.certificate-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4mm;
+}
+
+.certificate-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1mm;
+  max-width: 60mm;
+  text-align: left;
+}
+
+.certificate-meta-center {
+  align-items: center;
+  text-align: center;
+}
+
+.certificate-meta-label {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.certificate-meta-value {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.certificate-code {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+/* Certificate page stage: centers the sheet and scales it down on small
+   screens. Printing resets the scaling so the sheet prints true A4. */
+.certificate-scene {
+  display: flex;
+  justify-content: center;
+  padding: 8mm;
+}
+
+.certificate-scaler {
+  transform-origin: top left;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   PRINT — certificate only, A4 landscape, no application chrome.
+   ========================================================================== */
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .certificate-pdf-page {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .certificate-scene {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .certificate-scaler {
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .certificate-sheet {
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+}

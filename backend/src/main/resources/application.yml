@@ -1,0 +1,98 @@
+spring:
+  application:
+    name: backend
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 300000
+      connection-timeout: 20000
+      connection-test-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 0
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_APP_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  servlet:
+    multipart:
+      max-file-size: ${LESSON_VIDEO_MAX_SIZE:500MB}
+      max-request-size: ${LESSON_VIDEO_MAX_SIZE:500MB}
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION:3600000}
+
+cors:
+  allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://localhost:3000}
+
+server:
+  port: ${SERVER_PORT:8080}
+
+app:
+  lesson-video:
+    storage-directory: ${LESSON_VIDEO_STORAGE_DIRECTORY:uploads/lesson-videos}
+    max-size-bytes: ${LESSON_VIDEO_MAX_SIZE_BYTES:524288000}
+
+ai:
+  tutor:
+    api-key: ${AI_API_KEY:}
+    base-url: ${AI_API_BASE_URL:https://generativelanguage.googleapis.com/v1beta/openai}
+    model: ${AI_TUTOR_MODEL:gemini-3.6-flash}
+    temperature: ${AI_TUTOR_TEMPERATURE:0.4}
+    max-message-length: ${AI_TUTOR_MAX_MESSAGE_LENGTH:2000}
+    max-history-messages: ${AI_TUTOR_MAX_HISTORY_MESSAGES:10}
+    lesson-context-max-characters: ${AI_TUTOR_LESSON_CONTEXT_MAX_CHARACTERS:12000}
+    max-completion-tokens: ${AI_TUTOR_MAX_COMPLETION_TOKENS:800}
+    timeout-seconds: ${AI_TUTOR_TIMEOUT_SECONDS:30}
+
+paypal:
+  client-id: ${PAYPAL_CLIENT_ID:}
+  client-secret: ${PAYPAL_CLIENT_SECRET:}
+  base-url: ${PAYPAL_BASE_URL:https://api-m.sandbox.paypal.com}
+  mode: ${PAYPAL_MODE:sandbox}
+  timeout-seconds: 30
+  mad-to-usd-rate: ${PAYPAL_MAD_TO_USD_RATE:10.8}
+
+resend:
+  api-key: ${RESEND_API_KEY:}
+  from: ${RESEND_FROM:awards@resend.dev}
+  api-base-url: ${RESEND_API_BASE_URL:https://api.resend.com}
+  frontend-base-url: ${FRONTEND_URL:${FRONTEND_BASE_URL:http://localhost:5173}}
+  timeout-seconds: ${RESEND_TIMEOUT_SECONDS:20}
+
+email:
+  verification-token-ttl-hours: ${EMAIL_VERIFICATION_TOKEN_TTL_HOURS:24}
+  password-reset-token-ttl-minutes: ${PASSWORD_RESET_TOKEN_TTL_MINUTES:30}
+
+google:
+  oauth:
+    client-id: ${GOOGLE_CLIENT_ID:}
+    client-secret: ${GOOGLE_CLIENT_SECRET:}
+    redirect-uri: ${GOOGLE_REDIRECT_URI:http://localhost:8080/api/auth/google/callback}
+    scopes: ${GOOGLE_OAUTH_SCOPES:openid,email,profile}
+    exchange-code-ttl-seconds: ${GOOGLE_EXCHANGE_CODE_TTL_SECONDS:300}
+    jwks-cache-ttl-seconds: ${GOOGLE_JWKS_CACHE_TTL_SECONDS:3600}
+    frontend-callback-url: ${GOOGLE_FRONTEND_CALLBACK_URL:http://localhost:5173/auth/google/callback}

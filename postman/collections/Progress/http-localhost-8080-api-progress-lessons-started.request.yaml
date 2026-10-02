@@ -1,0 +1,25 @@
+$kind: http-request
+name: Mark Lesson Started
+description: >-
+  Convenience endpoint equivalent to creating a started progress row.
+  Idempotent: toggles the row to started only.
+url: http://localhost:8080/api/progress/lessons/{{lessonId}}/started
+method: POST
+body:
+  type: none
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Mark started returns 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Progress is marked started", function () {
+          const body = pm.response.json();
+          pm.expect(body.isCompleted).to.eql(false);
+      });
+order: 250

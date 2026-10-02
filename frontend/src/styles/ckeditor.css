@@ -1,0 +1,289 @@
+/* ==========================================================================
+   AWARDS ACADÉMIQUE — CKEditor 5 & rich-text lesson content THEMING
+   --------------------------------------------------------------------------
+   Maps CKEditor's CSS variables to the application design tokens so the
+   editor feels native in both light and dark mode. Also styles the rendered
+   rich-text output on the Formateur editor and the Student learning view.
+   ========================================================================== */
+
+/* ---- Editor component surface (matches FormInput/FormSelect/textarea) ---- */
+.rich-text-editor .ck.ck-editor {
+  width: 100%;
+  min-width: 0;
+}
+
+.rich-text-editor .ck.ck-editor__main {
+  max-width: 100%;
+}
+
+.rich-text-editor .ck.ck-editor__editable_inline {
+  min-height: 400px;
+  max-height: 70vh;
+  overflow-y: auto;
+  border-radius: 0 0 var(--radius-sm, 8px) var(--radius-sm, 8px);
+  border: 1px solid var(--color-border, #e8eaed);
+  background: var(--color-surface, #ffffff);
+  color: var(--color-text-primary, #202124);
+  font-family: var(--font-body, Georgia, serif);
+  font-size: var(--font-size-base, 1rem);
+  line-height: var(--line-height-relaxed, 1.7);
+  padding: var(--space-5, 20px) var(--space-6, 24px);
+  box-shadow: none !important;
+  transition: border-color var(--transition-fast, 150ms), box-shadow var(--transition-fast, 150ms);
+}
+
+.rich-text-editor .ck.ck-editor__editable_inline:focus {
+  border-color: var(--color-primary, #1a73e8);
+  box-shadow: 0 0 0 3px var(--color-focus-ring-subtle, rgba(26, 115, 232, 0.14)) !important;
+}
+
+.rich-text-editor .ck.ck-toolbar {
+  border: 1px solid var(--color-border, #e8eaed);
+  border-bottom: 0;
+  border-radius: var(--radius-sm, 8px) var(--radius-sm, 8px) 0 0;
+  background: var(--color-surface-secondary, #f4f6f8);
+  flex-wrap: wrap;
+  row-gap: 0;
+  padding: 4px 6px;
+}
+
+/* Toolbar buttons */
+.rich-text-editor .ck.ck-button,
+.rich-text-editor .ck.ck-dropdown__button .ck-button {
+  color: var(--color-text-secondary, #5f6368);
+  border-radius: 4px;
+}
+
+.rich-text-editor .ck.ck-button:hover:not(.ck-disabled),
+.rich-text-editor .ck.ck-dropdown__button .ck-button:hover:not(.ck-disabled) {
+  background: var(--color-primary-tint, rgba(26, 115, 232, 0.1));
+  color: var(--color-text-primary, #202124);
+}
+
+.rich-text-editor .ck.ck-button.ck-on,
+.rich-text-editor .ck.ck-dropdown__button .ck-button.ck-on {
+  background: var(--color-primary-tint, rgba(26, 115, 232, 0.1));
+  color: var(--color-primary, #1a73e8);
+}
+
+/* Dropdown panels / menus inherit app surfaces */
+.rich-text-editor .ck.ck-dropdown__panel,
+.rich-text-editor .ck.ck-list,
+.rich-text-editor .ck.ck-balloon-panel {
+  background: var(--color-surface-elevated, #ffffff);
+  border: 1px solid var(--color-border, #e8eaed);
+  box-shadow: var(--shadow-lg, 0 4px 8px rgba(0, 0, 0, 0.06));
+}
+
+.rich-text-editor .ck.ck-list__item .ck-button:hover {
+  background: var(--color-surface-secondary, #f4f6f8);
+}
+
+.rich-text-editor .ck.ck-list__item .ck-button.ck-on {
+  background: var(--color-primary-tint, rgba(26, 115, 232, 0.1));
+  color: var(--color-primary, #1a73e8);
+}
+
+/* Table widget */
+.rich-text-editor .ck.ck-editor__editable .ck-widget__selection-handle,
+.rich-text-editor .ck.ck-editor__editable .ck-widget__type-around-button {
+  color: var(--color-primary, #1a73e8);
+}
+
+.rich-text-editor .ck.ck-editor__editable .table {
+  margin: var(--space-4, 16px) 0;
+}
+
+/* Placeholder matches app muted text */
+.rich-text-editor .ck.ck-editor__editable_inline.ck-editor__editable p.ck-placeholder::before {
+  color: var(--color-text-muted, #9aa0a6);
+}
+
+/* Fullscreen overlay keeps app background */
+.ck.ck-editor--fullscreen {
+  background: var(--color-background, #fafbfc);
+}
+
+.ck.ck-editor--fullscreen .ck.ck-editor__editable_inline {
+  border: none;
+}
+
+/* ==========================================================================
+   RENDERED RICH-TEXT OUTPUT (.lesson-richtext, student + any preview)
+   ========================================================================== */
+.lesson-richtext {
+  font-family: var(--font-body, Georgia, serif);
+  color: var(--color-text-secondary, #5f6368);
+  font-size: var(--font-size-base, 1rem);
+  line-height: var(--line-height-relaxed, 1.7);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.lesson-richtext > :first-child {
+  margin-top: 0;
+}
+
+.lesson-richtext > :last-child {
+  margin-bottom: 0;
+}
+
+.lesson-richtext h1,
+.lesson-richtext h2,
+.lesson-richtext h3,
+.lesson-richtext h4 {
+  font-family: var(--font-display, 'Bodoni Moda', Didot, serif);
+  color: var(--color-text-primary, #202124);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 1.25em 0 0.5em;
+}
+
+.lesson-richtext h1 {
+  font-size: var(--font-size-3xl, 1.875rem);
+}
+
+.lesson-richtext h2 {
+  font-size: var(--font-size-2xl, 1.5rem);
+}
+
+.lesson-richtext h3 {
+  font-size: var(--font-size-xl, 1.25rem);
+}
+
+.lesson-richtext h4 {
+  font-size: var(--font-size-lg, 1.125rem);
+}
+
+.lesson-richtext p {
+  margin: 0 0 1rem;
+}
+
+.lesson-richtext a {
+  color: var(--color-primary, #1a73e8);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.lesson-richtext ul,
+.lesson-richtext ol {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.lesson-richtext ul {
+  list-style: disc;
+}
+
+.lesson-richtext ol {
+  list-style: decimal;
+}
+
+.lesson-richtext ul ul {
+  list-style: circle;
+}
+
+.lesson-richtext ol ol {
+  list-style: lower-alpha;
+}
+
+.lesson-richtext li {
+  margin: 0.25rem 0;
+}
+
+/* Block quote */
+.lesson-richtext blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 3px solid var(--color-primary, #1a73e8);
+  background: var(--color-primary-tint, rgba(26, 115, 232, 0.1));
+  border-radius: 0 var(--radius-sm, 8px) var(--radius-sm, 8px) 0;
+  color: var(--color-text-secondary, #5f6368);
+}
+
+/* Code blocks and inline code */
+.lesson-richtext pre {
+  background: var(--color-surface-dark, #101623);
+  color: #e6edf3;
+  padding: 1rem;
+  border-radius: var(--radius-sm, 8px);
+  overflow-x: auto;
+  margin: 1rem 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.lesson-richtext code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--color-surface-secondary, #f4f6f8);
+  color: var(--color-text-primary, #202124);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+
+.lesson-richtext pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* Tables */
+.lesson-richtext table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.lesson-richtext th,
+.lesson-richtext td {
+  border: 1px solid var(--color-border-strong, #dadce0);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.lesson-richtext th {
+  background: var(--color-surface-secondary, #f4f6f8);
+  color: var(--color-text-primary, #202124);
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+.lesson-richtext tr:nth-child(even) td {
+  background: var(--color-surface-secondary, #f4f6f8);
+}
+
+/* Horizontal rule */
+.lesson-richtext hr {
+  border: none;
+  border-top: 1px solid var(--color-border-strong, #dadce0);
+  margin: 1.5rem 0;
+}
+
+/* Marked / deleted / subscript etc. */
+.lesson-richtext s,
+.lesson-richtext del {
+  color: var(--color-text-muted, #9aa0a6);
+}
+
+.lesson-richtext strong {
+  color: var(--color-text-primary, #202124);
+  font-weight: var(--font-weight-bold, 700);
+}
+
+/* ==========================================================================
+   DARK MODE
+   The application switches themes via [data-theme="dark"] on <html>; the
+   token variables above already resolve to dark values. Exceptions below.
+   ========================================================================== */
+[data-theme='dark'] .lesson-richtext pre {
+  background: var(--color-surface-dark, #080a0f);
+  color: #d7dde4;
+}
+
+[data-theme='dark'] .lesson-richtext code {
+  background: var(--color-surface-tertiary, #1e242c);
+  color: var(--color-text-primary, #e8eaed);
+}

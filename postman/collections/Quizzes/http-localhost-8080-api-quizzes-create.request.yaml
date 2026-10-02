@@ -1,0 +1,32 @@
+$kind: http-request
+name: http://localhost:8080/api/quizzes (create)
+description: Creates a draft quiz for the course referenced by the course_id variable and stores the created id in the quiz_id collection variable.
+url: http://localhost:8080/api/quizzes
+method: POST
+body:
+  type: json
+  content: '{"courseId": "{{course_id}}", "title": "Introductory Physics Quiz"}'
+auth:
+  type: bearer
+  credentials:
+    token: "{{instructor_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Create quiz returns 201", function() {
+          pm.response.to.have.status(201);
+      });
+
+      pm.test("Created quiz has expected defaults", function() {
+          const body = pm.response.json();
+          pm.expect(body.id).to.be.a("string").and.to.not.be.empty;
+          pm.expect(body.title).to.eql("Introductory Physics Quiz");
+          pm.expect(body.courseId).to.eql(pm.collectionVariables.get("course_id"));
+          pm.expect(body.status).to.eql("draft");
+          pm.expect(body.passingScore).to.eql(70);
+          pm.expect(body.maxAttempts).to.eql(3);
+          pm.expect(body.questionCount).to.eql(0);
+          pm.collectionVariables.set("quiz_id", body.id);
+      });
+order: 300

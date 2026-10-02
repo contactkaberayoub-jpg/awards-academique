@@ -1,0 +1,264 @@
+/* ==========================================================================
+   AWARDS ACADÉMIQUE — DESIGN TOKENS
+   --------------------------------------------------------------------------
+   Single source of truth for the visual language of the entire application.
+   Every color, spacing, radius, shadow, transition and font used across
+   components MUST reference one of these variables. Never hardcode raw
+   values (hex, px, ms, etc.) directly inside a component — extend this
+   file instead so the system stays consistent and themeable (e.g. dark
+   mode) from a single place.
+   ========================================================================== */
+
+:root {
+  /* --------------------------------------------------------------------
+   * 1. LOGIN SYSTEM TOKENS (Source of Truth)
+   * -------------------------------------------------------------------- */
+  --color-primary: #6D28D9;
+  --color-primary-hover: #5B21B6;
+  --color-primary-active: #4C1D95;
+  --color-primary-foreground: #ffffff;
+
+  --color-ink: #101623;
+  --color-input-bg: #F4F6F8;
+  --color-text-muted: #5F6368;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F7F8FA;
+  --color-border: #E5E7EB;
+
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --radius-card: 24px;
+  --radius-input: 10px;
+  --radius-button: 10px;
+
+  --color-accent: #6D28D9;          /* Violet — highlights, milestones */
+  --color-accent-hover: #5B21B6;
+  --color-accent-foreground: #ffffff;
+
+  --color-success: #188038;         /* Published / certified */
+  --color-success-foreground: #ffffff;
+
+  --color-warning: #B06000;         /* Pending / in review */
+  --color-warning-foreground: #ffffff;
+
+  --color-error: #D93025;           /* Rejected / danger */
+  --color-error-foreground: #ffffff;
+
+  --color-info: #0E7490;
+  --color-info-foreground: #ffffff;
+
+  --color-focus-ring: #6D28D9;      /* Focus-visible ring for keyboard nav */
+  --color-focus-ring-subtle: rgba(109, 40, 217, 0.14);
+
+  /* --------------------------------------------------------------------
+   * 2. BACKGROUND SYSTEM
+   * Cool, near-white canvas with white cards and barely-there borders.
+   * -------------------------------------------------------------------- */
+  --color-background: #FAFBFC;       /* App canvas */
+  --color-surface: #FFFFFF;          /* Cards, panels */
+  --color-surface-secondary: #F4F6F8;/* Secondary surfaces, hover fills */
+  --color-surface-tertiary: #EDF0F2; /* Tertiary surfaces, skeletons */
+  --color-surface-dark: #101623;     /* Dark contrast surfaces */
+  --color-surface-elevated: #FFFFFF; /* Modals, popovers, dropdowns */
+  --color-surface-overlay: rgba(24, 28, 38, 0.42); /* Scrim behind modals/drawers */
+
+  /* --------------------------------------------------------------------
+   * 3. TEXT SYSTEM
+   * -------------------------------------------------------------------- */
+  --color-text-primary: #202124;    /* Ink headings */
+  --color-text-secondary: #5F6368;  /* Body copy */
+  --color-text-muted: #9AA0A6;      /* Placeholders, timestamps */
+  --color-text-inverse: #FFFFFF;    /* Text on dark/brand surfaces */
+
+  /* --------------------------------------------------------------------
+   * 4. BORDERS
+   * Barely-there dividers; strong is only for hover/focus emphasis.
+   * -------------------------------------------------------------------- */
+  --color-border: #E8EAED;
+  --color-border-strong: #DADCE0;
+
+  /* --------------------------------------------------------------------
+   * 4b. BRAND TINTS — translucent washes for soft badges, chart fills,
+   * selected rows and icon chips. Resolve in light and dark mode alike.
+   * -------------------------------------------------------------------- */
+  --color-primary-tint: rgba(26, 115, 232, 0.1);
+  --color-accent-tint: rgba(109, 40, 217, 0.1);
+  --color-success-tint: rgba(52, 168, 83, 0.12);
+  --color-warning-tint: rgba(249, 171, 0, 0.16);
+  --color-error-tint: rgba(234, 67, 53, 0.1);
+  --color-info-tint: rgba(14, 116, 144, 0.1);
+  --color-gray-tint: rgba(95, 99, 104, 0.08);
+
+  /* --------------------------------------------------------------------
+   * 4c. CERTIFICATE — academic document palette
+   * Used only by the printable certificate template. Derives from the
+   * brand ink/gold so the exported PDF and printed page stay consistent.
+   * -------------------------------------------------------------------- */
+  --color-certificate-paper: #FFFEFA;
+  --color-certificate-gold: #B08D2E;
+  --color-certificate-gold-tint: rgba(176, 141, 46, 0.16);
+  --color-certificate-rule: #D9C79A;
+
+  /* --------------------------------------------------------------------
+   * 5. RADIUS SCALE
+   * -------------------------------------------------------------------- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* --------------------------------------------------------------------
+   * 6. SHADOW SYSTEM
+   * Soft, low-opacity, multi-layered shadows — the "premium SaaS" look
+   * rather than harsh single-layer drop shadows.
+   * -------------------------------------------------------------------- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.05), 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.06), 0 12px 32px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.08), 0 24px 48px rgba(0, 0, 0, 0.12);
+
+  /* --------------------------------------------------------------------
+   * 7. SPACING SCALE
+   * Consistent 4px base rhythm used for padding, margin and gap.
+   * -------------------------------------------------------------------- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* --------------------------------------------------------------------
+   * 8. CONTAINER WIDTHS
+   * -------------------------------------------------------------------- */
+  --container-sm: 640px;
+  --container-md: 960px;
+  --container-lg: 1280px;
+  --container-xl: 1440px;
+
+  /* --------------------------------------------------------------------
+   * 9. TRANSITIONS
+   * -------------------------------------------------------------------- */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --------------------------------------------------------------------
+   * 10. TYPOGRAPHY
+   * --------------------------------------------------------------------
+   * Reference: santionispirits.com — a tall, high-contrast, condensed
+   * Didone serif for both big display headlines ("INDULGE NOW / ATONE
+   * LATER") and small uppercase caption labels ("SELECT HOUSES /
+   * FORTHCOMING"), with a plainer serif for body paragraphs.
+   *
+   * Big titles: Bodoni Moda (Google Fonts) — a variable Didone with a
+   * width axis pulled toward "condensed" for display use.
+   * Small titles/captions and body paragraphs: PT Serif (Google
+   * Fonts) — a plainer, lower-contrast book serif matching the
+   * reference site's justified paragraph copy and small uppercase
+   * labels. Inter is kept only as a fallback for plain UI chrome
+   * (form inputs, nav chrome) that shouldn't be set in either serif.
+   * -------------------------------------------------------------------- */
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Big display headlines only: pull the Bodoni Moda variable font's
+     width axis down toward condensed, and dial opsz + weight up, e.g.:
+       font-variation-settings: 'wdth' 70, 'opsz' 96, 'wght' 800;
+       text-transform: uppercase; letter-spacing: -0.01em;
+     Small titles/captions/eyebrow labels use PT Serif plain (no
+     variation axes needed) — just uppercase + wide tracking, e.g.:
+       text-transform: uppercase; letter-spacing: 0.18em; */
+  --font-stretch-display: 70%;
+
+  --font-size-2xs: 0.6875rem; /* 11px — micro labels, table headers */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+/* ==========================================================================
+   DARK MODE
+   --------------------------------------------------------------------------
+   Overrides the same token set, so every component that consumes the
+   variables above automatically adapts — no component-level changes
+   required. Toggle by adding `data-theme="dark"` to <html> or <body>.
+   ========================================================================== */
+[data-theme='dark'] {
+  --color-primary: #8AB4F8;
+  --color-primary-hover: #A6C7FA;
+  --color-primary-active: #70A5F5;
+  --color-primary-foreground: #0B1220;
+
+  --color-accent: #A78BFA;
+  --color-accent-hover: #C4B5FD;
+  --color-accent-foreground: #0B1220;
+
+  --color-success: #81C995;
+  --color-success-foreground: #0B1220;
+  --color-warning: #FDD663;
+  --color-warning-foreground: #0B1220;
+  --color-error: #F28B82;
+  --color-error-foreground: #0B1220;
+  --color-info: #24C1E0;
+  --color-info-foreground: #0B1220;
+
+  --color-focus-ring: #8AB4F8;
+  --color-focus-ring-subtle: rgba(138, 180, 248, 0.2);
+
+  --color-background: #0D1117;
+  --color-surface: #161B22;
+  --color-surface-secondary: #11161D;
+  --color-surface-tertiary: #1E242C;
+  --color-surface-dark: #080A0F;
+  --color-surface-elevated: #1B222B;
+  --color-surface-overlay: rgba(4, 6, 10, 0.6);
+
+  --color-text-primary: #E8EAED;
+  --color-text-secondary: #B1B6BC;
+  --color-text-muted: #6E7681;
+  --color-text-inverse: #0B1220;
+
+  --color-border: #232838;
+  --color-border-strong: #353D51;
+
+  --color-primary-tint: rgba(138, 180, 248, 0.13);
+  --color-accent-tint: rgba(167, 139, 250, 0.13);
+  --color-success-tint: rgba(129, 201, 149, 0.13);
+  --color-warning-tint: rgba(253, 214, 99, 0.13);
+  --color-error-tint: rgba(242, 139, 130, 0.13);
+  --color-info-tint: rgba(36, 193, 224, 0.13);
+  --color-gray-tint: rgba(148, 163, 184, 0.11);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.24);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.24), 0 20px 40px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.3), 0 32px 64px rgba(0, 0, 0, 0.36);
+}

@@ -1,0 +1,32 @@
+$kind: http-request
+name: Get Course Completion % (by course)
+description: >-
+  Returns the completion percentage for the current user on the given
+  course: completed lessons / total lessons * 100.
+url: http://localhost:8080/api/progress/courses/{{courseId}}
+method: GET
+body:
+  type: none
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Course progress returns 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Percentage is a valid 2-decimal number between 0 and 100", function () {
+          const body = pm.response.json();
+          pm.expect(body.courseId).to.eql(pm.collectionVariables.get("course_id"));
+          pm.expect(body.totalLessons).to.be.a("number").and.to.be.at.least(0);
+          pm.expect(body.completedLessons).to.be.a("number").and.to.be.at.least(0);
+          pm.expect(body.completedLessons).to.be.at.most(body.totalLessons);
+          const pct = Number(body.completionPercentage);
+          pm.expect(isNaN(pct)).to.eql(false);
+          pm.expect(pct).to.be.at.least(0);
+          pm.expect(pct).to.be.at.most(100);
+      });
+order: 550

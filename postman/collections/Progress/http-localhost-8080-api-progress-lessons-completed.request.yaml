@@ -1,0 +1,26 @@
+$kind: http-request
+name: Mark Lesson Completed
+description: >-
+  Marks the lesson as completed and verifies the isCompleted flag returned
+  by the API.
+url: http://localhost:8080/api/progress/lessons/{{lessonId}}/completed
+method: POST
+body:
+  type: none
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Mark completed returns 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Progress is marked completed", function () {
+          const body = pm.response.json();
+          pm.expect(body.isCompleted).to.eql(true);
+          pm.expect(body.completedAt).to.exist;
+      });
+order: 300

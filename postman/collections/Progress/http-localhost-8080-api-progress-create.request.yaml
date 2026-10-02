@@ -1,0 +1,32 @@
+$kind: http-request
+name: Create Progress (started)
+description: >-
+  Creates a progress row for the lesson (defaults to "started") and captures
+  the progress id for subsequent requests. Upserts if the row already exists.
+url: http://localhost:8080/api/progress
+method: POST
+body:
+  type: json
+  json:
+    lessonId: "{{lesson_id}}"
+    enrollmentId: "{{enrollment_id}}"
+    completed: false
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Create progress returns 201 or 200 (upsert)", function () {
+          pm.expect(pm.response.code).to.be.oneOf([201, 200]);
+      });
+
+      pm.test("Progress row has correct lesson id", function () {
+          const body = pm.response.json();
+          pm.expect(body.id).to.be.a("string").and.to.not.be.empty;
+          pm.expect(body.lessonId).to.eql(pm.collectionVariables.get("lesson_id"));
+          pm.expect(body.isCompleted).to.eql(false);
+          pm.collectionVariables.set("progress_id", body.id);
+      });
+order: 200

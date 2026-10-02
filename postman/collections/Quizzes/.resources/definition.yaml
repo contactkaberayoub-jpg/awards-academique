@@ -1,0 +1,22 @@
+$kind: collection
+name: Quizzes
+description: >-
+  End-to-end tests for the Quizzes module (create, read by id, read by course,
+  list all, update, publish, archive, delete). Run requests in collection order:
+  the login requests capture the JWT tokens, create captures the quiz id, and
+  the remaining requests reuse them. Prerequisites: the course_id variable must
+  point to a course owned by the instructor account, and the admin login must
+  use an administrator account (required for publish and archive).
+variables:
+  - key: instructor_email
+    value: ayoub@kaber.com
+  - key: instructor_password
+    value: Password122!
+  - key: admin_email
+    value: ayoub@kaber.com
+  - key: admin_password
+    value: Password122!
+  - key: course_id
+  - key: instructor_token
+  - key: admin_token
+  - key: quiz_id

@@ -1,0 +1,26 @@
+$kind: collection
+name: QuizAttempts
+description: >-
+  End-to-end tests for the QuizAttempts module: start a new attempt for a
+  given quiz, submit the answers payload (map of questionId -> optionId),
+  verify scoring + passed flag, fetch the attempt by id, list the student's
+  history (overall + per quiz), retrieve the best attempt for a quiz, view
+  the quiz history as an instructor / admin, and clean up via delete.
+  Prerequisites: populate the `quiz_id`, `question_id_a`,
+  `correct_option_id_a` collection variables with valid UUIDs. The student
+  must be actively enrolled in the course that owns the quiz.
+variables:
+  - key: student_email
+    value: ayoub@kaber.com
+  - key: student_password
+    value: Password122!
+  - key: admin_email
+    value: ayoub@kaber.com
+  - key: admin_password
+    value: Password122!
+  - key: quiz_id
+  - key: question_id_a
+  - key: correct_option_id_a
+  - key: student_token
+  - key: admin_token
+  - key: attempt_id

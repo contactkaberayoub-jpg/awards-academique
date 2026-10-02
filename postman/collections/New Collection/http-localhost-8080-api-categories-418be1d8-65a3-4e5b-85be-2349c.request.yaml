@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:8080/api/categories/418be1d8-65a3-4e5b-85be-2349c63476a5
+description: ""
+url: http://localhost:8080/api/categories/418be1d8-65a3-4e5b-85be-2349c63476a5
+method: GET
+order: 4029965303050175

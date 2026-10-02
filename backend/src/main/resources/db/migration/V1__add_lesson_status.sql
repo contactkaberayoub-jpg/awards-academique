@@ -1,0 +1,2 @@
+ALTER TABLE public.lessons
+    ADD COLUMN IF NOT EXISTS status VARCHAR(20) NOT NULL DEFAULT 'draft';

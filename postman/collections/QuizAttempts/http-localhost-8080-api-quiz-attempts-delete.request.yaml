@@ -1,0 +1,15 @@
+$kind: http-request
+name: Delete Attempt (cleanup)
+url: http://localhost:8080/api/quiz-attempts/{{attempt_id}}
+method: DELETE
+body:
+  type: none
+auth:
+  type: bearer
+  token: "{{admin_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Delete returns 204", function () { pm.response.to.have.status(204); });
+order: 700

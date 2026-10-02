@@ -1,0 +1,24 @@
+$kind: http-request
+name: Enroll Student in Course
+description: >-
+  Enrolls the student in the course referenced by course_id. A student must be
+  enrolled in a published course before reviewing it. Accepts both 201 (fresh
+  enrollment) and 409 (already enrolled) so the collection can be re-run
+  safely.
+url: http://localhost:8080/api/enrollments
+method: POST
+body:
+  type: json
+  json:
+    courseId: "{{course_id}}"
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Enrollment succeeds or already enrolled", function () {
+          pm.expect(pm.response.code).to.be.oneOf([201, 409]);
+      });
+order: 200

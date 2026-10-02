@@ -1,0 +1,30 @@
+$kind: http-request
+name: Get My Reviews
+description: >-
+  Lists the current student's reviews. Verifies the review created earlier is
+  returned with the expected rating and comment.
+url: http://localhost:8080/api/reviews/mine
+method: GET
+body:
+  type: none
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Get my reviews returns 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("The created review is present", function () {
+          const body = pm.response.json();
+          pm.expect(body).to.be.an("array");
+          const reviewId = pm.collectionVariables.get("review_id");
+          const found = body.find((review) => review.id === reviewId);
+          pm.expect(found).to.exist;
+          pm.expect(found.rating).to.eql(5);
+          pm.expect(found.courseId).to.eql(pm.collectionVariables.get("course_id"));
+      });
+order: 500

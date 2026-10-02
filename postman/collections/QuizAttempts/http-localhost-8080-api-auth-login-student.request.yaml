@@ -1,0 +1,22 @@
+$kind: http-request
+name: Login Student
+url: http://localhost:8080/api/auth/login
+method: POST
+body:
+  type: json
+  json:
+    email: "{{student_email}}"
+    password: "{{student_password}}"
+auth:
+  type: none
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Login returns 200", function () { pm.response.to.have.status(200); });
+      pm.test("Student token captured", function () {
+          var body = pm.response.json();
+          pm.expect(body.token).to.be.a("string").and.to.not.be.empty;
+          pm.collectionVariables.set("student_token", body.token);
+      });
+order: 100

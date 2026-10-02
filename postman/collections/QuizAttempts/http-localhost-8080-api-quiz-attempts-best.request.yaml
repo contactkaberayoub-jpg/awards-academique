@@ -1,0 +1,21 @@
+$kind: http-request
+name: Get Best Attempt For Quiz
+url: http://localhost:8080/api/quiz-attempts/me/quizzes/{{quiz_id}}/best
+method: GET
+body:
+  type: none
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Best returns 200", function () { pm.response.to.have.status(200); });
+      pm.test("Best returns a best score <=100 >=0", function () {
+          var body = pm.response.json();
+          pm.expect(body.score).to.be.a("number").and.to.be.at.least(0).and.to.be.at.most(100);
+          pm.expect(body.passed).to.be.a("boolean");
+          pm.expect(body.attemptsUsed).to.be.a("number").and.to.be.at.least(1);
+      });
+order: 600

@@ -1,0 +1,20 @@
+$kind: http-request
+name: Delete Review
+description: >-
+  Deletes the review created earlier. Also acts as a cleanup step so the
+  collection can be re-run without hitting the duplicate-review constraint.
+url: http://localhost:8080/api/reviews/{{review_id}}
+method: DELETE
+body:
+  type: none
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Delete review returns 204", function () {
+          pm.response.to.have.status(204);
+      });
+order: 700

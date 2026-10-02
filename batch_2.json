@@ -1,0 +1,302 @@
+[
+  {
+    "id": "75839931-7b9a-4fb8-93be-b1f419dc10e3",
+    "lesson_title": "Découvrir l'écosystème Apple et installer Xcode",
+    "section_title": "Swift",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "3d906df7-18e1-44ca-8b59-a6684c06ff5c",
+    "lesson_title": "Comprendre la syntaxe de base de Swift",
+    "section_title": "Swift",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "27cc9262-8994-4e9c-8510-6b0bd84d10af",
+    "lesson_title": "Structurer son code avec les fonctions",
+    "section_title": "Swift",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "95bd62bb-d3e5-43fe-984d-e4446e1e6f20",
+    "lesson_title": "Les types optionnels et la gestion des valeurs nulles",
+    "section_title": "Swift",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "215ef886-406e-4148-81ce-a1ca5ef11ca1",
+    "lesson_title": "Manipuler les collections avec Tableaux et Dictionnaires",
+    "section_title": "Swift",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "a292a18a-af3a-405d-8e3c-0dbe68cc72ea",
+    "lesson_title": "Le modelage de données avec les Structures",
+    "section_title": "Swift",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "b94155e9-a55e-4023-b67a-2b17a5ec4a0e",
+    "lesson_title": "Anatomie d'un projet Xcode et ses fichiers",
+    "section_title": "Xcode",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "064625ec-c7d1-43ad-8132-980b4ffde951",
+    "lesson_title": "Configurer les cibles et les build settings",
+    "section_title": "Xcode",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "3f46d4d6-b2ce-4431-b2aa-5c5b1d26acdf",
+    "lesson_title": "Maîtriser le débogueur et les breakpoints",
+    "section_title": "Xcode",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "89d2a1a0-110b-4544-977c-c4de8e0d9996",
+    "lesson_title": "Gérer les dépendances avec Swift Package Manager",
+    "section_title": "Xcode",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "4305d534-374a-4e05-b4a7-1d167c2f17b0",
+    "lesson_title": "Utiliser les Instruments pour optimiser les performances",
+    "section_title": "Xcode",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "00a3dbe8-ba9b-4fdc-a777-ecfd015fae42",
+    "lesson_title": "Organiser le code avec les extensions et les protocoles",
+    "section_title": "Xcode",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "313097d5-6255-4a7c-9695-4cb82a796074",
+    "lesson_title": "Définir les classes et comprendre l'héritage",
+    "section_title": "SwiftUI",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "140464a5-403f-4f74-8e9a-9dfb0efcc1e4",
+    "lesson_title": "Les modèles de conception en Swift",
+    "section_title": "SwiftUI",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "32fc590d-dd7d-4893-9155-57788770e264",
+    "lesson_title": "Gérer les cycles de vie avec ARC",
+    "section_title": "SwiftUI",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "e618f21f-3cf6-423a-a332-a2b79e46da11",
+    "lesson_title": "Le pattern Delegate et la communication entre objets",
+    "section_title": "SwiftUI",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "bb3558c4-c057-44c2-9283-055fff4f5608",
+    "lesson_title": "Les generics et la réutilisabilité du code",
+    "section_title": "SwiftUI",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "d34a4fee-22b4-4cb1-a494-10645d948419",
+    "lesson_title": "Combiner les classes et les protocoles pour une architecture solide",
+    "section_title": "SwiftUI",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "bebb587e-5633-4bdb-bdfe-a371b896d0da",
+    "lesson_title": "Comprendre Interface Builder et les Storyboards",
+    "section_title": "Navigation",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "502d3e0d-9ec3-4281-9096-2e0f41eb861a",
+    "lesson_title": "Créer des layouts avec Auto Layout et les contraintes",
+    "section_title": "Navigation",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "8e983ff9-d245-4b19-97de-93a39fb1fa1b",
+    "lesson_title": "Personnaliser les UIView et les composants réutilisables",
+    "section_title": "Navigation",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "9d61bd6a-55a5-484f-9c3d-411fae162b47",
+    "lesson_title": "Animer les interfaces avec Core Animation",
+    "section_title": "Navigation",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "cc8dd4e9-8091-4fb8-a864-308fcdf27f01",
+    "lesson_title": "Implémenter les UITableView et UICollectionView",
+    "section_title": "Navigation",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "39383159-d32f-4825-91eb-b6b3817360ce",
+    "lesson_title": "Concevoir des écrans responsives pour tous les appareils",
+    "section_title": "Navigation",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "b88e081c-fed6-47c8-9859-1e9a927b50cc",
+    "lesson_title": "Les principes fondamentaux de SwiftUI",
+    "section_title": "État",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "71162c9e-d3c3-4def-bb4e-4fdc15f58c8d",
+    "lesson_title": "Les propriétés enveloppantes de SwiftUI",
+    "section_title": "État",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "cfea44d9-d476-4c83-91c5-c265d70b5aab",
+    "lesson_title": "Construire des interfaces avec les vues SwiftUI",
+    "section_title": "État",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "8712168d-9a10-46a5-a59a-700d854ca919",
+    "lesson_title": "La pile de navigation et les sheets en SwiftUI",
+    "section_title": "État",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "6ea451cc-2b26-48a4-af8e-3db3db7802ec",
+    "lesson_title": "Gérer l'état global avec les ViewModels",
+    "section_title": "État",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "bd806425-5027-4ab3-bb4b-c4c20c154d95",
+    "lesson_title": "Styliser les interfaces avec les thèmes et les modificateurs",
+    "section_title": "État",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "7b817a04-3698-42e1-984b-993987389383",
+    "lesson_title": "La navigation en profondeur avec NavigationStack",
+    "section_title": "Réseau",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "6a3a2d10-d685-45ae-b1a6-eb6a223c29a1",
+    "lesson_title": "Gérer les données partagées entre les vues",
+    "section_title": "Réseau",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "2fe794f0-58f4-4af5-9457-04b5a04908e9",
+    "lesson_title": "Les transitions et animations personnalisées",
+    "section_title": "Réseau",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "736778db-0c61-43ce-a59f-3ed37b037af5",
+    "lesson_title": "Résoudre les problèmes réseau en conditions réelles",
+    "section_title": "Réseau",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "049337a0-e79e-49f1-8c34-475b93679776",
+    "lesson_title": "Stocker des données structurées avec Core Data",
+    "section_title": "Réseau",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "a58367d3-8299-44c8-b3c4-d6e999916ba0",
+    "lesson_title": "Créer une architecture MVVM robuste en iOS",
+    "section_title": "Réseau",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "cd6b1049-9d8b-4e9b-a1f1-42fb4941a5f3",
+    "lesson_title": "Les bases du networking avec URLSession",
+    "section_title": "Persistance",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "8aba30a4-c1b4-4286-aa22-8ef1dab77366",
+    "lesson_title": "Désérialiser le JSON avec Codable",
+    "section_title": "Persistance",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "fbe6fe24-af7d-453e-a90e-654108946c8d",
+    "lesson_title": "Implémenter un cache avec NSCache",
+    "section_title": "Persistance",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "73c137ca-da52-4808-8b6e-b4d12e0e7913",
+    "lesson_title": "Persister les préférences avec UserDefaults",
+    "section_title": "Persistance",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "66e5a671-1090-45de-9077-e7fd1ba745b0",
+    "lesson_title": "Gérer les erreurs réseau et les cas limites",
+    "section_title": "Persistance",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "6ab88e6c-5c78-4b03-b6ae-95bdd0f663b5",
+    "lesson_title": "Utiliser le moteur de recherche Spotlight",
+    "section_title": "Persistance",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "1d77914a-8a99-47a0-b300-e4a127f040e0",
+    "lesson_title": "Persister les données avec Keychain et FileManager",
+    "section_title": "Projet iOS",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "3da75b66-46f6-403d-837b-57bf076d4caf",
+    "lesson_title": "Configurer les tests unitaires et d'intégration",
+    "section_title": "Projet iOS",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "b7f6eb83-b050-49bd-8aeb-783431453251",
+    "lesson_title": "Préparer les assets graphiques et les métadonnées",
+    "section_title": "Projet iOS",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "a27fce8e-7236-42d9-8617-407df37d0b5d",
+    "lesson_title": "Configurer les certificats et les profils de provisioning",
+    "section_title": "Projet iOS",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "1af7d665-e131-4ff1-a6cc-ed8951501ba3",
+    "lesson_title": "Le processus de soumission sur App Store Connect",
+    "section_title": "Projet iOS",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "7627eca2-7325-40e0-b22c-5f6873a6e04c",
+    "lesson_title": "Surveiller les performances et les crashs en production",
+    "section_title": "Projet iOS",
+    "course_title": "Applications iOS avec Swift"
+  },
+  {
+    "id": "6be4e1c1-cc63-4be0-be3f-78fdf3194bd0",
+    "lesson_title": "Architecture fondamentale de l'App Router dans Next.js",
+    "section_title": "App Router",
+    "course_title": "Applications Web Modernes avec Next.js"
+  },
+  {
+    "id": "90d525d6-4a5f-4660-85bb-06c93f4dd335",
+    "lesson_title": "Création de routes avec la convention de fichiers du dossier app",
+    "section_title": "App Router",
+    "course_title": "Applications Web Modernes avec Next.js"
+  }
+]

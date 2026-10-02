@@ -1,0 +1,21 @@
+$kind: http-request
+name: Get My History
+url: http://localhost:8080/api/quiz-attempts/me
+method: GET
+body:
+  type: none
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Get history returns 200", function () { pm.response.to.have.status(200); });
+      pm.test("History is an array containing current attempt", function () {
+          var body = pm.response.json();
+          pm.expect(body).to.be.an("array");
+          var id = pm.collectionVariables.get("attempt_id");
+          pm.expect(body.some(function (a) { return a.id === id; })).to.eql(true);
+      });
+order: 500

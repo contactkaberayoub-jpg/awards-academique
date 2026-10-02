@@ -1,0 +1,35 @@
+$kind: http-request
+name: Create Review
+description: >-
+  Creates a review with a rating for the course. Verifies the notation is
+  persisted with the expected rating, comment and visible status, and captures
+  the review id in the review_id collection variable.
+url: http://localhost:8080/api/reviews
+method: POST
+body:
+  type: json
+  json:
+    courseId: "{{course_id}}"
+    rating: 5
+    comment: "Excellent course!"
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Create review returns 201", function () {
+          pm.response.to.have.status(201);
+      });
+
+      pm.test("Review is created with the rating", function () {
+          const body = pm.response.json();
+          pm.expect(body.id).to.be.a("string").and.to.not.be.empty;
+          pm.expect(body.courseId).to.eql(pm.collectionVariables.get("course_id"));
+          pm.expect(body.rating).to.eql(5);
+          pm.expect(body.comment).to.eql("Excellent course!");
+          pm.expect(body.status).to.eql("visible");
+          pm.collectionVariables.set("review_id", body.id);
+      });
+order: 300

@@ -1,0 +1,24 @@
+$kind: collection
+name: Progress
+description: >-
+  End-to-end tests for the Progress module: mark a lesson as started or
+  completed, retrieve progress per-lesson / per-enrollment / per-course
+  (with completion percentage), update or delete a progress row.
+  Prerequisites: populate the `lesson_id`, `enrollment_id` and `course_id`
+  collection variables with valid UUIDs. The student must be actively
+  enrolled in the course that owns the lesson.
+variables:
+  - key: student_email
+    value: ayoub@kaber.com
+  - key: student_password
+    value: Password122!
+  - key: admin_email
+    value: ayoub@kaber.com
+  - key: admin_password
+    value: Password122!
+  - key: lesson_id
+  - key: enrollment_id
+  - key: course_id
+  - key: student_token
+  - key: admin_token
+  - key: progress_id

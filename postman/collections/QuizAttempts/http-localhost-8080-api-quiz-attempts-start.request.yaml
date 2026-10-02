@@ -1,0 +1,31 @@
+$kind: http-request
+name: Start Attempt
+description: >-
+  Starts a new attempt for the configured quiz. Verifies status 201, the
+  default in_progress status, a zero score, and captures the attempt id for
+  later submission.
+url: http://localhost:8080/api/quiz-attempts
+method: POST
+body:
+  type: json
+  json:
+    quizId: "{{quiz_id}}"
+    answers: {}
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Start attempt returns 201", function () { pm.response.to.have.status(201); });
+      pm.test("Attempt is in_progress and attempt id captured", function () {
+          var body = pm.response.json();
+          pm.expect(body.id).to.be.a("string").and.to.not.be.empty;
+          pm.expect(body.status).to.eql("in_progress");
+          pm.expect(body.score).to.eql(0);
+          pm.expect(body.attemptsUsed).to.be.a("number").and.to.be.at.least(1);
+          pm.expect(body.maxAttempts).to.be.a("number").and.to.be.at.least(1);
+          pm.collectionVariables.set("attempt_id", body.id);
+      });
+order: 200

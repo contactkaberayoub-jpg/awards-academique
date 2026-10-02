@@ -1,0 +1,30 @@
+$kind: http-request
+name: Update Review
+description: >-
+  Updates the previously created review with a new rating and comment. Verifies
+  the changes are persisted.
+url: http://localhost:8080/api/reviews/{{review_id}}
+method: PUT
+body:
+  type: json
+  json:
+    rating: 4
+    comment: "Great course, minor improvements needed."
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Update review returns 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Review is updated with the new rating and comment", function () {
+          const body = pm.response.json();
+          pm.expect(body.id).to.eql(pm.collectionVariables.get("review_id"));
+          pm.expect(body.rating).to.eql(4);
+          pm.expect(body.comment).to.eql("Great course, minor improvements needed.");
+      });
+order: 600

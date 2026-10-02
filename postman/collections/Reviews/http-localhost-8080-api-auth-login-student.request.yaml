@@ -1,0 +1,29 @@
+$kind: http-request
+name: Login Student
+description: >-
+  Authenticates as a student and captures the JWT token in the student_token
+  collection variable. Reviews are created by students, so this token is used
+  by every request in the collection.
+url: http://localhost:8080/api/auth/login
+method: POST
+body:
+  type: json
+  json:
+    email: "{{student_email}}"
+    password: "{{student_password}}"
+auth:
+  type: none
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Login returns 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Token is captured", function () {
+          const body = pm.response.json();
+          pm.expect(body.token).to.be.a("string").and.to.not.be.empty;
+          pm.collectionVariables.set("student_token", body.token);
+      });
+order: 100

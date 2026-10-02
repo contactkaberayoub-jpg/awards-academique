@@ -1,0 +1,23 @@
+$kind: http-request
+name: http://localhost:8080/api/quizzes/course/{{course_id}} (get by course)
+description: Lists all quizzes of the course referenced by the course_id variable.
+url: http://localhost:8080/api/quizzes/course/{{course_id}}
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{instructor_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Get quizzes by course returns 200", function() {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Course quiz list contains the created quiz", function() {
+          const list = pm.response.json();
+          pm.expect(list).to.be.an("array");
+          pm.expect(list.some((quiz) => quiz.id === pm.collectionVariables.get("quiz_id"))).to.be.true;
+      });
+order: 500

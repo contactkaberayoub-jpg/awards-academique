@@ -1,0 +1,18 @@
+$kind: collection
+name: Reviews
+description: >-
+  End-to-end tests for the Reviews module (notation, one review per user per
+  course, list, update, delete). Run requests in collection order: the login
+  request captures the JWT token, the enrollment ensures the student is
+  enrolled in the course, and the create requests exercise the rating and the
+  duplicate constraint. Prerequisites: the course_id variable must point to a
+  published, active course, and the student must not have reviewed it yet
+  (previous runs clean up because the delete request removes the review).
+variables:
+  - key: student_email
+    value: ayoub@kaber.com
+  - key: student_password
+    value: Password122!
+  - key: course_id
+  - key: student_token
+  - key: review_id

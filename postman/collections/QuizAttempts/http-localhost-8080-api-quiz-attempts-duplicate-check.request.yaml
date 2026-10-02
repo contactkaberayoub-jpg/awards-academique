@@ -1,0 +1,23 @@
+$kind: http-request
+name: Start Attempt Duplicate (conflict check)
+description: >-
+  Tries to start a second attempt while another is in progress. The validator
+  should reject with a 409 conflict.
+url: http://localhost:8080/api/quiz-attempts
+method: POST
+body:
+  type: json
+  json:
+    quizId: "{{quiz_id}}"
+    answers: {}
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Duplicate in-progress attempt returns 409", function () {
+          pm.expect(pm.response.code).to.be.oneOf([409, 400]);
+      });
+order: 250

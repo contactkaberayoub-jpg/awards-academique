@@ -1,0 +1,17 @@
+$kind: http-request
+name: http://localhost:8080/api/quizzes/{{quiz_id}} (delete)
+description: Deletes the quiz referenced by the quiz_id variable, including its questions.
+url: http://localhost:8080/api/quizzes/{{quiz_id}}
+method: DELETE
+auth:
+  type: bearer
+  credentials:
+    token: "{{instructor_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Delete quiz returns 204", function() {
+          pm.response.to.have.status(204);
+      });
+order: 1000

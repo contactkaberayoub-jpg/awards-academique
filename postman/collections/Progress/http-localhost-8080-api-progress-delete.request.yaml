@@ -1,0 +1,20 @@
+$kind: http-request
+name: Delete Progress (cleanup)
+description: >-
+  Removes the progress row created by this collection run so the tests are
+  idempotent. Requires owner or administrator.
+url: http://localhost:8080/api/progress/{{progressId}}
+method: DELETE
+body:
+  type: none
+auth:
+  type: bearer
+  token: "{{admin_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Delete progress returns 204", function () {
+          pm.response.to.have.status(204);
+      });
+order: 700

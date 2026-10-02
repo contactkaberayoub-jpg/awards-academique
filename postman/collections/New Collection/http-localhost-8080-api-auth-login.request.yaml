@@ -1,0 +1,19 @@
+$kind: http-request
+name: http://localhost:8080/api/auth/login
+description: ""
+url: http://localhost:8080/api/auth/login
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"email\": \"ayoub@kaber.com\",\r
+
+    \  \"password\": \"Password122!\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: ""
+order: 1784144999101

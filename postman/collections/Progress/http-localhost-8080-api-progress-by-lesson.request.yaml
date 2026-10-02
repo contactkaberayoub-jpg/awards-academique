@@ -1,0 +1,25 @@
+$kind: http-request
+name: Get Progress By Lesson
+description: >-
+  Retrieves the current user's progress for a single lesson (or a default
+  "not started yet" response when no row has been inserted yet).
+url: http://localhost:8080/api/progress/lessons/{{lessonId}}
+method: GET
+body:
+  type: none
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Get by lesson returns 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Progress has the expected lesson id", function () {
+          const body = pm.response.json();
+          pm.expect(body.lessonId).to.eql(pm.collectionVariables.get("lesson_id"));
+      });
+order: 400

@@ -1,0 +1,30 @@
+$kind: http-request
+name: Create Duplicate Review
+description: >-
+  Attempts to create a second review for the same course. Verifies the
+  one-review-per-user-per-course constraint: the API rejects it with a 400 and
+  an "already reviewed" message.
+url: http://localhost:8080/api/reviews
+method: POST
+body:
+  type: json
+  json:
+    courseId: "{{course_id}}"
+    rating: 3
+    comment: "A second attempt should be rejected."
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Duplicate review returns 400", function () {
+          pm.response.to.have.status(400);
+      });
+
+      pm.test("Error message indicates the review already exists", function () {
+          const body = pm.response.json();
+          pm.expect(body.message).to.include("already reviewed");
+      });
+order: 400

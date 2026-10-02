@@ -1,0 +1,27 @@
+$kind: http-request
+name: Get Course Completion % (by enrollment)
+description: >-
+  Same completion percentage but scoped by enrollment id (used by admin or
+  when current user id is not enough by itself).
+url: http://localhost:8080/api/progress/enrollments/{{enrollmentId}}/course
+method: GET
+body:
+  type: none
+auth:
+  type: bearer
+  token: "{{student_token}}"
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Course progress by enrollment returns 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Percentage is consistent with the course endpoint", function () {
+          const body = pm.response.json();
+          pm.expect(body.enrollmentId).to.eql(pm.collectionVariables.get("enrollment_id"));
+          pm.expect(body.completedLessons).to.be.a("number");
+          pm.expect(body.totalLessons).to.be.a("number");
+      });
+order: 570
